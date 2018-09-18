@@ -32,14 +32,31 @@ const asyncIncrementor = () => {
     })
 };
 
-const createIncrementer = () => {};
+const createIncrementer  = () => {
+    function *iterator(n = 100) {
+        for(let i = 1; i < n; i++) {
+            yield i;
+        }
+    }
+    return iterator();
+};
 
 // return same argument not earlier than in one second, and not later, than in two
-const returnBackInSecond = () => {};
+const returnBackInSecond = (arg) => {
+    return new Promise( (resolve, regect) => {
+        setTimeout(function() {
+            return resolve(arg);
+        }, 1100)
+    })
+};
 const getDeepPropertiesCount = () => {};
-const createSerializedObject = () => {};
+const createSerializedObject = () => { return null};
 const toBuffer = () => {};
-const sortByProto = () => {};
+const sortByProto = (obj) => {
+    return obj.sort(function (a, b) {
+        return b - a;
+    });
+};
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
